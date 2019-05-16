@@ -1,4 +1,4 @@
-<h2>Simple Drawing Pad<h2>
+<h2>Simple Drawing Pad</h2>
 Simple Drawing Pad Starter Template, especially for implementing some Computer Vision Demo Problems.
 
 <ul>Examples:
