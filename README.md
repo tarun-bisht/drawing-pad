@@ -9,4 +9,4 @@ Simple Drawing Pad Starter Template, especially for implementing some Computer V
 
 The Template makes fast workflow for implementing some ML problems which require to draw something on Screen, Implement your Machine Learning Model for web and show it to world. 
  
-<a href="https://tarun-bisht.github.io/SimpleDrawingPad/">Live DEMO TO SIMPLE DRAWING PAD</a>
+<a href="https://tarun-bisht.github.io/SimpleDrawingPad/">LIVE DEMO TO SIMPLE DRAWING PAD</a>
