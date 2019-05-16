@@ -54,33 +54,35 @@ function clear()
 }
 function predict()
 {
-  feed.drawImage(ctx.canvas,0,0,feed.canvas.width,feed.canvas.height);
-  let data=feed.getImageData(0,0,feed.canvas.width,feed.canvas.height).data;
-  let inputs=[];
-  for(var i=3;i<data.length;i=i+4)
-  {
-    inputs.push(data[i]/255.0);
-  }
-  //Send The Response Json
+  //MAINIPULATE AND SEND IMAGE DATA USING ajax CUSTOMIZE THIS FUNCTION ACCORDING TO NEED
+//   feed.drawImage(ctx.canvas,0,0,feed.canvas.width,feed.canvas.height);
+//   let data=feed.getImageData(0,0,feed.canvas.width,feed.canvas.height).data;
+//   let inputs=[];
+//   for(var i=3;i<data.length;i=i+4)
+//   {
+//     inputs.push(data[i]/255.0);
+//   }
+    //Send The Response Json
   
-  //json pattern
-  json_arr='[';
-  for(i in inputs)
-  {
-    json_arr+=inputs[i].toString();
-    json_arr+=',';
-  }
-  json_arr=json_arr.substring(0,json_arr.length-1)
-  json_arr+=']';
-  //ajax send response
-  $.ajax
-  ({
-    data:{"pixels":json_arr},
-    type:'POST',
-    url:"/url",//Url to send response
-    dataType:'json'
-  }).done(function(data)//get back response as json
-  {
-    console.log(data);
-  });
+    //json pattern
+//   json_arr='[';
+//   for(i in inputs)
+//   {
+//     json_arr+=inputs[i].toString();
+//     json_arr+=',';
+//   }
+//   json_arr=json_arr.substring(0,json_arr.length-1)
+//   json_arr+=']';
+  
+    //ajax send response UNCOMMENT THE  REGION BELOW ajax will only run in a webserver
+//   $.ajax
+//   ({
+//     data:{"pixels":json_arr},
+//     type:'POST',
+//     url:"/url",//Url to send response
+//     dataType:'json'
+//   }).done(function(data)//get back response as json
+//   {
+//     console.log(data);
+//   });
 }
