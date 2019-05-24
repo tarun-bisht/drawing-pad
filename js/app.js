@@ -1,12 +1,16 @@
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
+var predictbar;
 var stroke_color='#000000';
-var stroke_width=16;
+var stroke_width=10;
+const model_url="https://github.com/tarun-bisht/DigitRecognition/blob/master/model/model.json";
+var model=tf.loadModel(model_url);
 function InitThis()
 {
   ctx = document.getElementById('draw').getContext("2d");
   feed=document.getElementById('feed').getContext("2d");
+predict=document.getElementById('predict');
   $('#draw').mousedown(function (e) {
       mousePressed = true;
       Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -54,35 +58,14 @@ function clear()
 }
 function predict()
 {
-  //MAINIPULATE AND SEND IMAGE DATA USING ajax CUSTOMIZE THIS FUNCTION ACCORDING TO NEED
-//   feed.drawImage(ctx.canvas,0,0,feed.canvas.width,feed.canvas.height);
-//   let data=feed.getImageData(0,0,feed.canvas.width,feed.canvas.height).data;
-//   let inputs=[];
-//   for(var i=3;i<data.length;i=i+4)
-//   {
-//     inputs.push(data[i]/255.0);
-//   }
-    //Send The Response Json
-  
-    //json pattern
-//   json_arr='[';
-//   for(i in inputs)
-//   {
-//     json_arr+=inputs[i].toString();
-//     json_arr+=',';
-//   }
-//   json_arr=json_arr.substring(0,json_arr.length-1)
-//   json_arr+=']';
-  
-    //ajax send response UNCOMMENT THE  REGION BELOW ajax will only run in a webserver
-//   $.ajax
-//   ({
-//     data:{"pixels":json_arr},
-//     type:'POST',
-//     url:"/url",//Url to send response
-//     dataType:'json'
-//   }).done(function(data)//get back response as json
-//   {
-//     console.log(data);
-//   });
+  feed.drawImage(ctx.canvas,0,0,feed.canvas.width,feed.canvas.height);
+  let data=feed.getImageData(0,0,feed.canvas.width,feed.canvas.height).data;
+  let inputs=[];
+  for(var i=3;i<data.length;i=i+4)
+  {
+    inputs.push(data[i]/255.0);
+  }
+  var prediction=model.predict(inputs);
+predict.innerHTML=prediction
+  Console.log(prediction);
 }
