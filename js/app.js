@@ -1,16 +1,12 @@
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
-var predictbar;
 var stroke_color='#000000';
 var stroke_width=10;
-const model_url="https://github.com/tarun-bisht/DigitRecognition/blob/master/model/model.json";
-var model=tf.loadModel(model_url);
 function InitThis()
 {
   ctx = document.getElementById('draw').getContext("2d");
-  feed=document.getElementById('feed').getContext("2d");
-predict=document.getElementById('predict');
+  result=document.getElementById('result');
   $('#draw').mousedown(function (e) {
       mousePressed = true;
       Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -53,19 +49,15 @@ function clear()
 {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  feed.setTransform(1, 0, 0, 1, 0, 0);
-  feed.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+   result.innerHTML="Pixel Array Length: NAN";
 }
 function predict()
 {
-  feed.drawImage(ctx.canvas,0,0,feed.canvas.width,feed.canvas.height);
-  let data=feed.getImageData(0,0,feed.canvas.width,feed.canvas.height).data;
+  let data=ctx.getImageData(0,0,ctx.canvas.width,ctx.canvas.height).data;
   let inputs=[];
   for(var i=3;i<data.length;i=i+4)
   {
     inputs.push(data[i]/255.0);
   }
-  var prediction=model.predict(inputs);
-predict.innerHTML=prediction
-  Console.log(prediction);
+  result.innerHTML="Pixel Array Length: "+inputs.length.toString();
 }
