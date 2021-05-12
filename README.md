@@ -1,12 +1,10 @@
-<h2>Simple Drawing Pad</h2>
-Simple Drawing Pad Starter Template, especially for implementing some Computer Vision Demo Problems.
-<h5>Examples:</h5>
-<ul>
-  <li> MNIST Handwitten Digit Recognition </li>
-  <li> Doodle Classifier </li>
-  <li> Handwitten Character Recognision etc. </li>
-</ul>
+# Simple Drawing Pad
+[LIVE URL](https://github.com/tarun-bisht/drawing-pad)
 
-The Template makes fast workflow for implementing some ML problems which require to draw something on Screen, Implement your Machine Learning Model for web and show it to world. 
- 
-<a href="https://tarun-bisht.github.io/SimpleDrawingPad/">LIVE DEMO TO SIMPLE DRAWING PAD</a>
+Simple Drawing Pad created with vanilla js.
+
+It can be used with projects that require hand drawn inputs, some examples are:
+
+- Signature in application
+- Handwritten Digit Recognition
+- Handdrawn clothing Recognition  etc..
