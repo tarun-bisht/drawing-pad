@@ -1,5 +1,5 @@
 # Simple Drawing Pad
-[LIVE URL](https://www.tarun-bisht.github.io/drawing-pad/)
+[LIVE URL](https://tarun-bisht.github.io/drawing-pad/)
 
 Simple Drawing Pad created with vanilla js.
 
